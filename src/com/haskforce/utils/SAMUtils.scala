@@ -26,4 +26,8 @@ object SAMUtils {
   }
 
   def listCellRenderer[A](f: A => String) = new SListCellRendererWrapper[A](f)
+
+  def ijFunction[A, B](f: A => B): com.intellij.util.Function[A, B] = new com.intellij.util.Function[A, B] {
+    override def fun(param: A): B = f(param)
+  }
 }
